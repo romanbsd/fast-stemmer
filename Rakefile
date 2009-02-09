@@ -4,11 +4,13 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |s|
     s.name = "fast-stemmer"
-    s.summary = %Q{TODO}
-    s.email = "roman.shterenzon@gmail.com"
+    s.summary = %Q{Fast Porter stemmer based on a C version of algorithm}
+    s.email = "romanbsd@yahoo.com"
     s.homepage = "http://github.com/romanbsd/fast-stemmer"
-    s.description = "TODO"
+    s.description = s.summary
     s.authors = ["Roman Shterenzon"]
+    s.extensions = ['ext/extconf.rb']
+    s.files = FileList["[A-Z]*", "{ext,lib,test}/**/*"]
   end
 rescue LoadError
   puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
@@ -28,24 +30,6 @@ Rake::TestTask.new(:test) do |t|
   t.libs << 'lib' << 'test'
   t.pattern = 'test/**/*_test.rb'
   t.verbose = false
-end
-
-begin
-  require 'rcov/rcovtask'
-  Rcov::RcovTask.new do |t|
-    t.libs << 'test'
-    t.test_files = FileList['test/**/*_test.rb']
-    t.verbose = true
-  end
-rescue LoadError
-  puts "RCov is not available. In order to run rcov, you must: sudo gem install spicycode-rcov"
-end
-
-begin
-  require 'cucumber/rake/task'
-  Cucumber::Rake::Task.new(:features)
-rescue LoadError
-  puts "Cucumber is not available. In order to run features, you must: sudo gem install cucumber"
 end
 
 task :default => :test
