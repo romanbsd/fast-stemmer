@@ -10,7 +10,7 @@ http://tartarus.org/~martin/PorterStemmer/
 Usage:
 
   require 'rubygems'
-  require 'fast_stemmer'
+  require 'fast-stemmer'
 
   Stemmer::stem_word('running') # -> 'run'
   'running'.stem                # -> 'run'
