@@ -7,10 +7,13 @@ It's in order of magnitude faster (and uses much less memory) than the latter.
 For the original work please see:
 http://tartarus.org/~martin/PorterStemmer/
 
+Gemfile:
+  gem 'fast-stemmer'
+
 Usage:
 
   require 'rubygems'
-  require 'fast-stemmer'
+  require 'fast_stemmer'
 
   Stemmer::stem_word('running') # -> 'run'
   'running'.stem                # -> 'run'
