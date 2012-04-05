@@ -17,25 +17,20 @@ struct stemmer {
 
 static VALUE stem_word(VALUE self, VALUE arg)
 {
-	int length, i;
+	size_t length, i;
 	char *word;
-	char *res;
 	struct stemmer z;
 	VALUE str, rv;
 
 	str = StringValue(arg);
-	word = RSTRING_PTR(str);
+	word = malloc(RSTRING_LEN(str) + 1);
+	strncpy(word, RSTRING_PTR(str), RSTRING_LEN(str));
+	word[RSTRING_LEN(str)] = '\0';
 
 	length  = stem(&z, word, strlen(word)-1);
-	/* length is the index of last char, add one for size and one for '\0' */
-	res = (char *)malloc((length+2) * sizeof(char));
-	for (i=0; i<=length; i++)
-	{
-		res[i] = word[i];
-	}
-	res[length+1] = 0;
-	rv = rb_str_new2(res);
-	free(res);
+	word[length+1] = 0;
+	rv = rb_str_new2(word);
+	free(word);
 	return rv;
 }
 

@@ -16,7 +16,7 @@ rescue LoadError
   puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
 end
 
-require 'rake/rdoctask'
+require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title = 'fast-stemmer'

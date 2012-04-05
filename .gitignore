@@ -1,3 +1,4 @@
 *.sw?
+ext/Makefile
 .DS_Store
 coverage
