@@ -12,6 +12,7 @@ begin
     s.extensions = ['ext/extconf.rb']
     s.files = FileList["[A-Z]*", "{ext,lib,test}/**/*"]
   end
+  Jeweler::RubygemsDotOrgTasks.new
 rescue LoadError
   puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
 end
