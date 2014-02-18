@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.authors = ["Roman Shterenzon"]
   s.date = "2013-02-06"
   s.description = "Fast Porter stemmer based on a C version of algorithm"
+  s.license = "BSD"
   s.email = "romanbsd@yahoo.com"
   s.extensions = ["ext/extconf.rb"]
   s.extra_rdoc_files = [
